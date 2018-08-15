@@ -1,0 +1,30 @@
+﻿@{
+    //Layout  = "_Layout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Login";
+}
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["MensagemErro"]
+    </div>
+}
+
+
+<form method="post" action="/home/login">
+    <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="text" name="email" value="" class="form-control" id="email" placeholder="Digite o seu e-mail">
+        @Html.ValidationMessage("email")
+    </div>
+    <div class="form-group">
+        <label for="senha">Senha</label>
+        <input type="password" name="senha" value="" class="form-control" id="senha" placeholder="Digite o sua senha">
+        @Html.ValidationMessage("senha")
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+@ViewBag.Mensagem
